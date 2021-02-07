@@ -1,0 +1,15 @@
+version: '3.4'
+volumes:
+  database:
+services:
+  database:
+    image: postgres:12.5-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: points_dev
+    ports:
+      - '5432:5432'
+    volumes:
+      - database:/var/lib/postgresql/data
